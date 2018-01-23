@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>html</title>
+    <script>
+        var min = 0;
+        var max = 0;
+
+        function startt() {
+            if (document.getElementById("min1").value == "" || document.getElementById("max1").value == "") {} else {
+
+                min = +document.getElementById("min1").value;
+                max = +document.getElementById("max1").value;
+                if (min >= 0 && min <= 50 && max >= 0 && max <= 50) {
+                    document.getElementById("gap").style.display = "none";
+                    document.getElementById("solve").style.display = "block";
+                }
+            }
+        }
+
+
+        var number;
+
+        function getRandom() {
+            number = Math.floor(Math.random() * (max - min + 1)) + min
+            document.getElementById("number").innerHTML = number;
+        }
+
+        function Compare() {
+            var UserNumber = +document.getElementById("numb").value;
+            if (UserNumber == Math.pow(number, 2)) {
+                document.getElementById("res").className = "text-success";
+                document.getElementById("res").innerHTML = "Ok. Lets repeat once more!!!";
+
+                clr();
+                getRandom();
+            } else {
+                document.getElementById("res").className = "text-danger";
+                document.getElementById("res").innerHTML = "Fail. Try again!"
+            }
+        }
+
+        function clr() {
+            document.getElementById("numb").value = " ";
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 align="center">Train your skills of square numbers</h1>
+    <div id="gap" class="form-group">
+        Min number:<input type="number" class="form-control" min="0" max="50" id="min1" required><br><br> Max number:<input type="number" class="form-control" min="0" id="max1" max="50" required><br><br>
+        <input type="submit" class="btn-warm btn-lg" onclick="startt()" value="Lets start">
+    </div>
+
+    <div id="solve" style="display: none;">
+        <p>Квадрат <span id="number"></span> :</p>
+        <input type="number" class="form-control" onchange="Compare()" min="0" max="1521" id="numb">
+        <input type="button" class="btn-info" value="Go..." onclick="Compare()"><br>
+        <p>Result = <span id="res"></span></p>
+    </div>
+    <script>
+        getRandom();
+
+    </script>
+</body>
+
+</html>

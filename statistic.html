@@ -1,0 +1,70 @@
+<html>
+
+<head>
+	<title>Strange</title>
+	<style>
+		#figures {
+			display: flex;
+		}
+
+		#green,
+		#red {
+			width: 30px;
+			margin-left: 10px;
+			margin-top: 10px;
+		}
+
+		#green {
+			background-color: green;
+		}
+
+		#red {
+			background-color: red;
+		}
+
+	</style>
+</head>
+<script>
+	window.onload = init;
+	var SumaElem, MonthElem, CapiliststionElem;
+
+	function init() {
+		SumaElem = document.getElementById("summa");
+		SumaElem.onkeyup = calculate;
+
+	}
+
+</script>
+
+<body>
+	<div class="statistic_body">
+		<p>Калькулятор процентов, из расчёта 12% годовых.</p>
+		<label for="summa">Сумма</label>
+		<input type="text" id="summa" placeholder="1000"><br>
+		<label for="months">Срок в месацях</label>
+		<select id="months">
+				<option>3 (минимум)</option>
+				<option>6 (полгода)</option>
+				<option>12 (год)</option>
+				<option>18 (1,5 год)</option>
+				<option>24 (2 год)</option>
+				<option>30 (2,5 год)</option>
+				<option>36 (3 год)</option>
+		</select><br>
+		<label for="cj">С капитализацией</label>
+		<input type="checkbox" id="cj">
+	</div>
+	<div id="figures">
+		<div id="bilo">
+			<strong>Било: <br><span id="bilo"></span></strong>
+			<div id="green"></div>
+
+		</div>
+		<div id="stanet">
+			<strong>Станет: <br><span id="Stanet"></span></strong>
+			<div id="red"></div>
+		</div>
+	</div>
+</body>
+
+</html>

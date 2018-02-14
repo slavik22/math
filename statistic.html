@@ -25,12 +25,15 @@
 	</style>
 </head>
 <script>
+	//http://plnkr.co/edit/bPIDQRkX6vWFYbDhBQpJ?p=preview
 	window.onload = init;
 	var SumaElem, MonthElem, CapiliststionElem;
 
 	function init() {
 		SumaElem = document.getElementById("summa");
 		SumaElem.onkeyup = calculate;
+		MonthElem = document.getElementById("months");
+		MonthElem.onchange = calculate;
 
 	}
 
